@@ -1,4 +1,18 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<swal
+        #secondSwal
+        title="Second Dialog"
+        icon="info">
+</swal>
+
+<swal #firstSwal title="First Dialog">
+  <div *swalPortal>
+    <button type="button" [swal]="secondSwal">Open second dialog</button>
+  </div>
+</swal>
+
+<button type="button" [swal]="firstSwal">Open first dialog</button>
+
+
+
+
+<!-- ERROR? Open first dialog > (firstSwal)Open second dialog > (secondSwal)OK > Open first dialog > (firstSwal)OK > ERRORRRRRR -->
